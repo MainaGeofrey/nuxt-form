@@ -11,14 +11,17 @@
   },
   "devDependencies": {
     "@nuxt/devtools": "latest",
+    "@pinia/nuxt": "^0.4.11",
     "autoprefixer": "^10.4.16",
     "nuxt": "^3.7.4",
+    "nuxt-calendly": "^0.1.15",
     "postcss": "^8.4.31",
     "tailwindcss": "^3.3.3",
     "vue": "^3.3.4",
     "vue-router": "^4.2.5"
   },
   "dependencies": {
+    "pinia": "^2.1.6",
     "vue-flatpickr-component": "^11.0.3"
   }
 }

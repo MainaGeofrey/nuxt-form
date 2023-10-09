@@ -1,23 +1,29 @@
 <template>
-  <StepsContainer ref="StepsContainerRef"  :count="count">
+  <StepsContainer ref="StepsContainerRef" :count="count">
     <template #step1>
-     <Step1 @nextStep="next"/>
+      <Step1 @nextStep="next" />
     </template>
     <template #step2>
-      <Step2 @nextStep="next"/>
+      <Step2 @nextStep="next" />
     </template>
     <template #step3>
-      <Step3 @nextStep="next"/>
+      <Step3 @nextStep="next" />
     </template>
-    <template #step4>
-       <Step4 @nextStep="next"/>
+    <template v-if="!hideCalendyStep" #step4>
+
+      <Step4 @nextStep="next" />
     </template>
-     <template #step5>
-       <Step5 @nextStep="next"/>
+    <template #step5>
+      <Step5 @nextStep="next" />
     </template>
-      <template #step6>
-       <Step6 @nextStep="next"/>
+    <template #step6>
+      <Step6 @nextStep="next" />
     </template>
+
+    <template #step7>
+      <Step6 @nextStep="next" />
+    </template>
+
   </StepsContainer>
 </template>
 
@@ -25,20 +31,31 @@
 
 <script setup>
 
-import Step1 from '@/components/steps/Step1.vue';
-import Step2 from '@/components/steps/Step2.vue';
-import Step3 from '@/components/steps/Step3.vue';
-import Step4 from '@/components/steps/Step4.vue';
-import Step5 from '@/components/steps/Step5.vue';
-import Step6 from '@/components/steps/Step6.vue';
+import Step1 from '@/components/steps/VehicleType.vue';
+import Step2 from '@/components/steps/BudgetRange.vue';
+import Step3 from '@/components/steps/DeliveryPickup.vue';
+import Step4 from '@/components/steps/ScheduleServe.vue';
+import Step5 from '@/components/steps/Calendy.vue';
+import Step6 from '@/components/steps/Step5.vue';
+import Step7 from '@/components/steps/Step6.vue';
 
+import { useFormStepsStore } from '@/store/StepsForm'
 const count = 6; // number of steps
 
 
 import StepsContainer from '@/components/StepsContainer.vue';
 const StepsContainerRef = ref(null);
+const formStore = useFormStepsStore();
+const currentStep = formStore.currentStep
+const hideCalendyStep = ref(false);
 
-const next = () => {
+const next = (currentStep) => {
+
+  console.log("current step **", currentStep)
+  if (currentStep === 5) {
+    console.log("mmmm")
+    hideCalendyStep.value = true;
+  }
   StepsContainerRef.value.nextStep();
 }
 

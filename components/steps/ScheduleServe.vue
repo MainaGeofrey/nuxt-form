@@ -2,13 +2,13 @@
     <div class="w-full max-w-[720px] mx-auto flex flex-col items-start space-y-10">
         <div class="w-full max-w-[648px] space-y-3">
             <div>
-                <input type="radio" id="hosting-big-callback" 
+                <input type="radio" id="callback" 
                 name="hosting"
                 value="hosting-big"
                 class="hidden peer"
                 @click="handleClick('callback')"
                 />
-                <label for="hosting-big-callback" 
+                <label for="callback" 
                     class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200
                     rounded-lg cursor-pointer dark:hover:text-gray-300 dark:peer-checked:text-blue-600
                     peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100
@@ -23,13 +23,13 @@
             </div>
 
             <div>
-                <input type="radio" id="hosting-big-self-serve" 
+                <input type="radio" id="self-serve" 
                 name="hosting"
                 value="hosting-big"
                 class="hidden peer"
                 @click="handleClick('self-serve')" 
                 />
-                <label for="hosting-big-self-serve" 
+                <label for="self-serve" 
                     class="inline-flex items-center justify-between w-full p-5 text-gray-500 bg-white border border-gray-200
                     rounded-lg cursor-pointer dark:hover:text-gray-300 dark:peer-checked:text-blue-600
                     peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100
@@ -47,18 +47,22 @@
 </template>
 
 <script setup>
-import OptionRadio from "@/components/UI/OptionRadio.vue";
+
 
 const emit = defineEmits(['nextStep']);
 let selectedOption = null; 
 
-const next = () => {
+const nextStepCalendar = () => {
     emit('nextStep');
 };
 
 const handleClick = (option) => {
     selectedOption = option;
-    next();
+
+    if(selectedOption === 'callback'){
+        nextStepCalendar();
+    }
+
 };
 </script>
 

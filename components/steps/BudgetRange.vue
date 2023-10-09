@@ -16,6 +16,7 @@
 
 <script setup>
 import OptionSelectVue from "@/components/UI/OptionSelect.vue"
+import { useFormStepsStore } from '@/store/StepsForm'
  const emit = defineEmits(['nextStep']);
 
 const options = ref([

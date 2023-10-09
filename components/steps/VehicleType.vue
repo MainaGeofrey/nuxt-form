@@ -16,6 +16,10 @@
 <script setup>
  import CarCard from "@/components/UI/CarCard.vue";
  const emit = defineEmits(['nextStep']);
+ import { useFormStepsStore } from '@/store/StepsForm'
+ const step = 1;
+ const formStore = useFormStepsStore();
+ const currentStep = formStore.setCurrentStep(step)
  const cars = ref([
     {
         image: 'https://shop.canadauto.ca/wp-content/uploads/2023/09/Depositphotos_7486411_S.jpg',
@@ -45,7 +49,7 @@
         })
         item.is_active = true;
         setTimeout(() => {
-            emit('nextStep');
+            emit('nextStep',1);
         }, 500);
     }
 

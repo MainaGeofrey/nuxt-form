@@ -9,7 +9,7 @@
     <template #step3>
       <Step3 @nextStep="next" />
     </template>
-    <template v-if="!hideCalendyStep" #step4>
+    <template  #step4>
 
       <Step4 @nextStep="next" />
     </template>
@@ -20,9 +20,17 @@
       <Step6 @nextStep="next" />
     </template>
 
-    <template #step7>
+      <template v-if="!hideCalendyStep" #step7>
       <Step6 @nextStep="next" />
     </template>
+
+        <template #step8>
+        <Step6 @nextStep="next" />
+      </template>
+
+          <template #step9>
+        <Step6 @nextStep="next" />
+      </template>
 
   </StepsContainer>
 </template>
@@ -34,10 +42,12 @@
 import Step1 from '@/components/steps/VehicleType.vue';
 import Step2 from '@/components/steps/BudgetRange.vue';
 import Step3 from '@/components/steps/DeliveryPickup.vue';
-import Step4 from '@/components/steps/ScheduleServe.vue';
-import Step5 from '@/components/steps/Calendy.vue';
-import Step6 from '@/components/steps/Step5.vue';
-import Step7 from '@/components/steps/Step6.vue';
+import Step4 from '@/components/steps/Search.vue';
+import Step5 from '@/components/steps/OTP.vue';
+import Step6 from '@/components/steps/ScheduleServe.vue';
+import Step7 from '@/components/steps/Calendy.vue';
+import Step8 from '@/components/steps/Step5.vue';
+import Step9 from '@/components/steps/Step6.vue';
 
 import { useFormStepsStore } from '@/store/StepsForm'
 const count = 6; // number of steps

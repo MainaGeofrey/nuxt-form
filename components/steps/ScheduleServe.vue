@@ -53,7 +53,7 @@ const emit = defineEmits(['nextStep']);
 let selectedOption = null; 
 
 const nextStepCalendar = () => {
-    emit('nextStep');
+    emit('nextStep',7);
 };
 
 const handleClick = (option) => {

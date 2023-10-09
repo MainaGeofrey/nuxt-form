@@ -17,7 +17,11 @@
        </div>
     </div>-->
 
-    <CalendlyInlineWidget  v-bind="options" style="min-width: 320px; height: 700px;" />
+    <div v-if="showCalendar" >
+        <CalendlyInlineWidget  v-bind="options" style="min-width: 320px; height: 700px;" />
+
+    </div>
+
 
 
     <!--    <div class="calendly-inline-widget" data-url="https://calendly.com/caeappt/speakwithanexpert"
@@ -36,11 +40,11 @@ const emit = defineEmits(['nextStep']);
 //import 'flatpickr/dist/flatpickr.css';
 
 const date = ref(null);
-const calendarMounted = ref(true)
+const showCalendar = ref(true)
 
 const skip = () => {
         formStore.setNextStep(nextstep)
-    emit('nextStep',5);
+    emit('nextStep',8);
 }
 
 
@@ -51,12 +55,12 @@ const options = {
 useCalendlyEventListener({
     onDateAndTimeSelected: event => {
         console.log("onDateAndTimeSelected", event)
-        calendarMounted.value = false;
+        showCalendar.value = false;
      //   skip()
     },
 })
 
-watch(calendarMounted, (newValue, oldValue) => {
+watch(showCalendar, (newValue, oldValue) => {
     console.log("new value", newValue)
     console.log("old value", oldValue)
     skip()
@@ -66,7 +70,7 @@ watch(calendarMounted, (newValue, oldValue) => {
 onMounted(() => {
 
 
-
+console.log("calendy TTT")
     /**    const recaptchaScript = document.createElement('script')
             recaptchaScript.setAttribute('src', 'https://assets.calendly.com/assets/external/widget.js')
             document.head.appendChild(recaptchaScript) 

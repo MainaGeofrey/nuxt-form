@@ -8,7 +8,7 @@
                     <path d="M8 4v2H0V4z"></path>
                 </svg>
             </div>
-            <h1 class="text-[#C23C3B]  text-xl">Address *</h1>
+            <h1 class="text-[#C23C3B]  text-xl">Search Address *</h1>
         </div>
 
 

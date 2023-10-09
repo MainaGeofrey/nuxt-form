@@ -9,7 +9,7 @@
     <template #step3>
       <Step3 @nextStep="next" />
     </template>
-    <template  #step4>
+    <template #step4>
 
       <Step4 @nextStep="next" />
     </template>
@@ -20,17 +20,18 @@
       <Step6 @nextStep="next" />
     </template>
 
-      <template v-if="!hideCalendyStep" #step7>
-      <Step6 @nextStep="next" />
+    <template #step7>
+
+      <Step7 @nextStep="next" />
     </template>
 
-        <template #step8>
-        <Step6 @nextStep="next" />
-      </template>
+    <template #step8>
+      <Step8 @nextStep="next" />
+    </template>
 
-          <template #step9>
-        <Step6 @nextStep="next" />
-      </template>
+    <template #step9>
+      <Step9 @nextStep="next" />
+    </template>
 
   </StepsContainer>
 </template>
@@ -50,7 +51,7 @@ import Step8 from '@/components/steps/Step5.vue';
 import Step9 from '@/components/steps/Step6.vue';
 
 import { useFormStepsStore } from '@/store/StepsForm'
-const count = 6; // number of steps
+const count = 9; // number of steps
 
 
 import StepsContainer from '@/components/StepsContainer.vue';
@@ -62,7 +63,7 @@ const hideCalendyStep = ref(false);
 const next = (currentStep) => {
 
   console.log("current step **", currentStep)
-  if (currentStep === 5) {
+  if (currentStep === 8) {
     console.log("mmmm")
     hideCalendyStep.value = true;
   }
